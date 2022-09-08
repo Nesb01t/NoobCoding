@@ -1,3 +1,4 @@
+#include <time.h>
 #include <random>
 #include <vector>
 #include <iostream>
@@ -17,12 +18,12 @@ int main()
         arr[i] = randomInt(engine);
     }
 
-    // 选择排序
-    for(auto i=0;i<N;i++){
+    // 选择排序, 复杂度为O(n^2)
+    for(auto i=0;i<N;i++){ // n+1
         int max_value = arr[i];
         int max_id = i;
-        for(auto j=i;j<N;j++){
-            if (arr[j]>max_value){
+        for(auto j=i;j<N;j++){ // n(n+1) 
+            if (arr[j]>max_value){ // n(n+1)+1
                 max_value = arr[j];
                 max_id = j;
             }
