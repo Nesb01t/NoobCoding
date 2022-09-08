@@ -18,7 +18,7 @@ int main()
         arr[i] = randomInt(engine);
     }
 
-    // 选择排序, 复杂度为O(n^2)
+    // 选择排序, 时间复杂度为O(n^2)
     for(auto i=0;i<N;i++){ // n+1
         int max_value = arr[i];
         int max_id = i;
