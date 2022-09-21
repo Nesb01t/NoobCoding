@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    cout<<"123";
-
+    myVector<int> a = myVector<int>();
+    
     return 0;
 }
