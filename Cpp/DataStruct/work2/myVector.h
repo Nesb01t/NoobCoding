@@ -10,7 +10,7 @@ protected:
     T* _elem;
     
     void copyFrom(T const* source, int left, int right){for(int i=left;i<=right; i++)_elem[i-left] = source[i];};
-    void expand(){
+    void expand(){ // 扩大容量
         _capacity*=2;
         T* __elem = new T[_capacity];
         for(int i=0;i<_capacity>>2;i++){
@@ -18,7 +18,7 @@ protected:
             __elem[i+_capacity>>2]=0;
         }
     };
-    void bubbleSort(int left, int right){
+    void bubbleSort(int left, int right){ // 排序
         for(int i=left;i<right-1;i++){
             for(int j=i;j<right-1;j++){
                 if(_elem[j]>_elem[j+1])swap(_elem[j], _elem[j+1]);
@@ -26,6 +26,7 @@ protected:
         }
     };
 public:
+/* ---------- structure ---------- */ 
     myVector(int c=DEFAULT_CAPACITY, int s=0, T v=0){ // 容量, 规模, 初始值
         if(s>c)c=s;
         _capacity = c;_size = s;_elem = new T[_capacity];
@@ -50,8 +51,9 @@ public:
         for(int i=0;i<s;i++)_elem[i]=source[left+i];
     };
     ~myVector(){delete[] _elem;};
+
 /* ---------- debugger ---------- */ 
-    void debug_output(){
+    void debug_output(){ // 调试输出所有属性
         std::cout<<"capacity容量: "<<_capacity<<std::endl
             <<"size规模: "<<_size<<std::endl
             <<"elem数据: ";
@@ -59,12 +61,13 @@ public:
             std::cout<<_elem[i]<<" ";
         }
     }
+
 /* ---------- read only interface ---------- */
     int getSize() const{return _size;}
     bool empty() const{return _size==0;}
-    
 
 /* ---------- writable interface ---------- */
     T& operator[](int r){return _elem[r];} // 下标操作符
     const T& operator[](int r)const{return _elem[r];} // 做右值时-下标操作符
+    myVector<T>& operator=(myVector<T> const& source){return myVector<T>(source);}
 };
