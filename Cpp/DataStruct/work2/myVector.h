@@ -11,6 +11,7 @@ protected:
     
     void copyFrom(T const* source, int left, int right);
     void expand(){
+        _capacity*=2;
         _elem = new T[_capacity];
     };
     void bubbleSort(int left, int right);
@@ -34,12 +35,17 @@ public:
     };
 /* ---------- debugger ---------- */ 
     void debug_output(){
+        std::cout<<"capacity容量: "<<_capacity<<std::endl
+            <<"size规模: "<<_size<<std::endl
+            <<"elem数据: ";
         for(int i=0;i<_size;i++){
-            std::cout<<_elem[i]<<std::endl;
+            std::cout<<_elem[i]<<" ";
         }
     }
 /* ---------- read only interface ---------- */
-
+    int getSize() const{return _size;}
+    bool empty() const{return _size==0;}
+    
 
 /* ---------- writable interface ---------- */
 };
