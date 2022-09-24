@@ -105,4 +105,12 @@ public:
         return s;
     }
 
+    // int insert(int r, T const& e){
+
+    // }
+    int insert(T const& e){ // 默认末尾插入
+        if(++_size>=_capacity)expand();
+        _elem[_size-1]=e;
+        return _size-1;
+    }
 };
