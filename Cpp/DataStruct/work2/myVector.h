@@ -104,7 +104,6 @@ public:
         _size=_size-s-1;
         return s;
     }
-
     int insert(int r, T const& e){ // 按rank插入
         if(++_size>=_capacity)expand();
         for(int i=_size-1;i>r;i--)_elem[i]=_elem[i-1];
@@ -116,4 +115,8 @@ public:
         _elem[_size-1]=e;
         return _size-1;
     }
+    void sort(int left, int right){this->bubbleSort(left, right-1);} // 区间排序
+    void sort(){sort(0, _size);} // 默认排序
+    void traverse(void(*f)(T& x)){for(int i=0;i<_size;i++)f(_elem[i]);};
+    // void add(){x++}
 };
