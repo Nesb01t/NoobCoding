@@ -52,7 +52,7 @@ public:
     };
     ~myVector(){delete[] _elem;};
 
-/* ---------- debugger ---------- */ 
+/* ---------- my debugger ---------- */ 
     void debug_output(){ // 调试输出所有属性
         std::cout<<"capacity容量: "<<_capacity<<std::endl
             <<"size规模: "<<_size<<std::endl

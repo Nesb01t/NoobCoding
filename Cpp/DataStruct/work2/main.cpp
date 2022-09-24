@@ -10,7 +10,7 @@ void add(T x){ // 函数指针案例 -> myVector.traverse(add);
 int main() {
     int a[5] = {1, 2, 3, 4, 5};
     myVector<int> v = myVector<int>(a, 5);
-    // ↓ insert your debugging code ↓
+    // ↓ 请输入您的测试代码 ↓ insert your debugging code ↓
 
 
     v.debug_output();
