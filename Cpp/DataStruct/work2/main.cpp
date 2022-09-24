@@ -4,10 +4,10 @@
 using namespace std;
 
 int main() {
-    myVector<int> a = myVector<int>(10, 3);
+    int a[5] = {1, 2, 3, 4, 5};
+    myVector<int> v = myVector<int>(a, 5);
     // ↓ insert your debugging code ↓
-    
 
-    a.debug_output();
+    v.debug_output();
     return 0;
 }
