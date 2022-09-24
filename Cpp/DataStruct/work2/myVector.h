@@ -12,7 +12,11 @@ protected:
     void copyFrom(T const* source, int left, int right);
     void expand(){
         _capacity*=2;
-        _elem = new T[_capacity];
+        T* __elem = new T[_capacity];
+        for(int i=0;i<_capacity>>2;i++){
+            __elem[i]=_elem[i];
+            __elem[i+_capacity>>2]=0;
+        }
     };
     void bubbleSort(int left, int right);
 public:
