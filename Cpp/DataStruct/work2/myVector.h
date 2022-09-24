@@ -8,7 +8,7 @@ protected:
     int _size;
     int _capacity;
     T* _elem;
-    
+
     void copyFrom(T const* source, int left, int right){for(int i=left;i<=right; i++)_elem[i-left] = source[i];};
     void expand(){ // 扩大容量
         _capacity*=2;
@@ -61,13 +61,48 @@ public:
             std::cout<<_elem[i]<<" ";
         }
     }
-
 /* ---------- read only interface ---------- */
     int getSize() const{return _size;}
     bool empty() const{return _size==0;}
-
+    int find(T const& e) const{ // 查找
+        int s = this->getSize();
+        while(s--)if(e==_elem[s])break;
+        return s;
+    } 
+    int find(T const& e, int left, int right) const{ // 区间查找
+        for(int i=left;i<=right;i++)if(_elem[i]==e)return i;
+        return -1;
+    }
+    int search(T const& e) const{return search(e, 0, this->getSize());} // 有序查找
+    int search(T const& e, int left, int right) const{ // 有序-区间查找
+        while(left<right) {
+            int mid = (right + left) / 2;
+            if (_elem[mid]==e) {
+                return mid;
+            } else if (_elem[mid]<e) {
+                left = mid+1;
+            } else if (_elem[mid]>e) {
+                right = mid-1;
+            }
+        }
+        return -1;
+    }
+    
 /* ---------- writable interface ---------- */
     T& operator[](int r){return _elem[r];} // 下标操作符
     const T& operator[](int r)const{return _elem[r];} // 做右值时-下标操作符
     myVector<T>& operator=(myVector<T> const& source){return myVector<T>(source);}
+    T remove(int r){ // 删除秩
+        T x = _elem[r];
+        remove(r, r);
+        return x;
+    } 
+    int remove(int left, int right){ // 删除区间
+        int s=right-left;
+        for(int i=right+1;i<_size-s+1;i++)_elem[i-s-1]=_elem[i];
+        for(int i=_size-s-1;i<_size;i++)_elem[i]=0;
+        _size=_size-s-1;
+        return s;
+    }
+
 };
