@@ -39,12 +39,16 @@ public:
         _capacity = 2*(right-left);_size = right-left;_elem = new T[_capacity];
         copyFrom(source, left, right);
     };
-    myVector(myVector<T> const& source){
+    myVector(myVector<T> const& source){ // 拷贝函数
         int s = source.getSize();
         _capacity = 2*s;_size = s;_elem = new T[_capacity];
         for(int i=0;i<s;i++)_elem[i]=source[i];
-    }; // 拷贝
-    myVector(myVector<T> const& source, int left, int right);
+    };
+    myVector(myVector<T> const& source, int left, int right){ // 区间拷贝函数
+        int s = right-left;
+        _capacity = 2*s;_size = s;_elem = new T[_capacity];
+        for(int i=0;i<s;i++)_elem[i]=source[left+i];
+    };
     ~myVector(){delete[] _elem;};
 /* ---------- debugger ---------- */ 
     void debug_output(){
