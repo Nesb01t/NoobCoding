@@ -105,9 +105,12 @@ public:
         return s;
     }
 
-    // int insert(int r, T const& e){
-
-    // }
+    int insert(int r, T const& e){ // 按rank插入
+        if(++_size>=_capacity)expand();
+        for(int i=_size-1;i>r;i--)_elem[i]=_elem[i-1];
+        _elem[r]=e;
+        return _size-r-1;
+    }
     int insert(T const& e){ // 默认末尾插入
         if(++_size>=_capacity)expand();
         _elem[_size-1]=e;

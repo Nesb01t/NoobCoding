@@ -8,7 +8,7 @@ int main() {
     myVector<int> v = myVector<int>(a, 5);
     // ↓ insert your debugging code ↓
 
-    v.insert(1);
+    v.insert(2, 1);
     v.debug_output();
     return 0;
 }
