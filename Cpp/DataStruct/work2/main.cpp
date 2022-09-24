@@ -4,7 +4,7 @@
 using namespace std;
 
 template <typename T>
-void add(T x){
+void add(T x){ // 函数指针案例 -> myVector.traverse(add);
     x++;
 }
 int main() {
@@ -12,7 +12,7 @@ int main() {
     myVector<int> v = myVector<int>(a, 5);
     // ↓ insert your debugging code ↓
 
-    v.traverse(add);
+
     v.debug_output();
     return 0;
 }
