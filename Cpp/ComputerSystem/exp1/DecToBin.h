@@ -42,7 +42,7 @@ public:
             this->newm+=int(binStr[i]-'0')*pow(2, source);
             source--; i++;
         }
-        source--; i++;
+        source--; i+=2;
 
         while(source>-7){
             this->newm+=int(binStr[i]-'0')*pow(2, source);
