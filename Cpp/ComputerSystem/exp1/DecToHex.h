@@ -9,7 +9,8 @@ public:
     DecToHex(){ // 构造函数
         this->m = 0;
         this->newm = 0;
-    }; 
+        hexStr.clear();
+    }
     void toHex(){ // 转十六进制
         // 整数部分
         int a = int(m);
