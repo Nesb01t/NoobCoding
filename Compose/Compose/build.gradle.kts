@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-group = "com.example"
+group = "com.nesb01t"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -38,7 +38,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ComposeDemo"
+            packageName = "Compose"
             packageVersion = "1.0.0"
         }
     }
