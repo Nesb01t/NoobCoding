@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="page1.css" />
+  </head>
+
+  <body>
+    <div
+      class="head"
+      style="
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+      "
+    >
+      <div class="item1" style="margin: 0 1px 0 0">社区</div>
+      <div class="item1" style="margin: 0 1px 0 0">助手</div>
+      <div class="item1" style="margin: 0 1px 0 0">动态</div>
+      <div class="item1" style="margin: 0">云服务</div>
+      <div class="item2" style="width: 20%; background-color: green"></div>
+      <div class="item1" style="margin: 0 1px 0 0">搜索</div>
+      <div class="item1" style="margin: 0 1px 0 0">登录</div>
+      <div class="item1" style="margin: 0">注册</div>
+      <div class="item3" style="width: 10%; background-color: green"></div>
+    </div>
+    <div class="denglu" style="display: none">
+      <div class="d1" style="position: relative; top: 40px; left: 50px">
+        <input
+          type="text"
+          name="sousuo"
+          value="请输入用户名..."
+          style="color: grey"
+        />
+        <input
+          type="text"
+          name="sousuo"
+          value="请输入密码..."
+          style="color: grey"
+        />
+        <button class="submit" style="color: white; background-color: green">
+          搜索
+        </button>
+        <button class="submit" style="color: white; background-color: green">
+          搜索
+        </button>
+      </div>
+    </div>
+    <div class="nav" style="position: absolute; top: 50px; left: 0">
+      <div class="nav1" style="background-color: white; display: flex">
+        <div class="logo">Logo</div>
+        <div style="width: 37%"></div>
+        <div class="item4">首页</div>
+        <div class="item4">产品</div>
+        <div class="item4">品牌</div>
+        <div class="item4">在线商城</div>
+        <div class="item4">体验店</div>
+        <div class="item4">服务</div>
+      </div>
+      <div class="sousuo" style="background-color: grey; display: none">
+        <div class="d1" style="position: relative; top: 20px; left: 800px">
+          <input
+            type="text"
+            name="sousuo"
+            style="height: 50px; width: 300px; font-size: 16px"
+          />
+          <button
+            class="submit"
+            style="
+              height: 56px;
+              width: 100px;
+              font-size: 16px;
+              color: white;
+              background-color: green;
+            "
+          >
+            搜索
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="mainImage">
+        <ul id="imageUL">
+          <li><img /></li>
+          <li><img /></li>
+          <li><img /></li>
+          <li><img /></li>
+        </ul>
+        <div>发现生活的趣味和美好</div>
+        <div>
+          旅途中、生活中，手机帮助您记录一个个精彩画面。
+          感谢您的分享，在这里，您看到的都是手机拍摄的作品。
+        </div>
+        <ul id="circleUL">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="menu"
+      style="
+        height: 150px;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 650px;
+        left: 0;
+        display: flex;
+      "
+    >
+      <div style="width: 150px"></div>
+      <div class="item5" style="background-color: green">
+        <div class="img1" style="background-image: url(image/p1.png)">
+          <div class="font" style="color: white">社区</div>
+        </div>
+      </div>
+      <div class="item5" style="background-color: grey">
+        <div
+          class="img1"
+          class="font"
+          style="background-image: url(image/p2.png)"
+        >
+          <div class="font" style="color: black">Color</div>
+        </div>
+      </div>
+      <div class="item5" style="background-color: green">
+        <div class="img1" style="background-image: url(image/p3.png)">
+          <div class="font" style="color: white">软件商店</div>
+        </div>
+      </div>
+      <div class="item5" style="background-color: grey">
+        <div class="img1" style="background-image: url(image/p4.png)">
+          <div class="font" style="color: black">品牌中心</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var imgs = [
+      "image/pic1.jpg",
+      "image/pic2.jpg",
+      "image/pic3.jpg",
+      "image/pic4.jpg",
+    ];
+    var nowIndex = 0;
+    var imgUL = document.getElementById("imageUL");
+    var imgLi = imgUL.getElementsByTagName("img");
+    var circleUL = document.getElementById("circleUL");
+    var circleLi = circleUL.getElementsByTagName("li");
+
+    for (let i = 0; i < 4; i++) {
+      imgLi[i].style.width = screen.width + "px";
+      imgLi[i].src = imgs[i];
+
+      circleLi[i].addEventListener("click", (e) => {
+        select(i);
+        clearInterval(Timer);
+        setTimeout(() => {
+          Timer = setInterval(update, 1000);
+        }, 1000);
+      });
+    }
+    imgUL.style.width = imgLi[0].offsetWidth * imgLi.length + "px";
+
+    function select(index) {
+      nowIndex = index;
+      for (let i = 0; i < 4; i++) {
+        // clear css
+        circleLi[i].style.border = "";
+        circleLi[i].style.backgroundColor = "";
+      }
+
+      imgUL.style.left = -screen.width * index + "px";
+      circleLi[index].style.border = "2px solid #006F22";
+      circleLi[index].style.backgroundColor = "#FFF";
+    }
+    function update() {
+      nowIndex++;
+      if (nowIndex === 4) {
+        nowIndex = 0;
+      }
+      select(nowIndex);
+    }
+
+    var Timer = setInterval(update, 1000);
+  </script>
+</html>
