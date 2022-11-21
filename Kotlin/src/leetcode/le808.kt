@@ -16,7 +16,7 @@ class le808 {
         for (i in 1..n) {
             for (j in 1..n) {
                 dp[i][j] =
-                    (dp[Math.max(0, i - 4)][j] +
+                    (dp[0.coerceAtLeast(i - 4)][j] +
                      dp[Math.max(0, i - 3)][Math.max(0, j - 1)] +
                      dp[Math.max(0, i - 2
                 )][Math.max(0, j - 2)] + dp[Math.max(0, i - 1)][Math.max(0, j - 3)]) / 4.0
