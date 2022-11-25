@@ -26,11 +26,18 @@
       <div class="item1" style="margin: 0">云服务</div>
       <div class="item2" style="width: 20%; background-color: green"></div>
       <div class="item1" style="margin: 0 1px 0 0">搜索</div>
-      <div class="item1" style="margin: 0 1px 0 0">登录</div>
+      <div
+        class="item1"
+        id="loginBtn"
+        onClick="openBlock()"
+        style="margin: 0 1px 0 0"
+      >
+        登录
+      </div>
       <div class="item1" style="margin: 0">注册</div>
       <div class="item3" style="width: 10%; background-color: green"></div>
     </div>
-    <div class="denglu" style="display: none">
+    <div class="denglu" id="loginBlock" style="display: none">
       <div class="d1" style="position: relative; top: 40px; left: 50px">
         <input
           type="text"
@@ -144,54 +151,63 @@
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    var imgs = [
-      "image/pic1.jpg",
-      "image/pic2.jpg",
-      "image/pic3.jpg",
-      "image/pic4.jpg",
-    ];
-    var nowIndex = 0;
-    var imgUL = document.getElementById("imageUL");
-    var imgLi = imgUL.getElementsByTagName("img");
-    var circleUL = document.getElementById("circleUL");
-    var circleLi = circleUL.getElementsByTagName("li");
+    <script defer>
+      // login controller
+      function openBlock() {
+        let loginBlock = document.getElementById("loginBlock");
+        loginBlock.setAttribute("style", "");
+      }
+      // document.getElementById("loginBtn").addEventListener("click", (e) => {
+      //   openBlock();
+      // });
 
-    for (let i = 0; i < 4; i++) {
-      imgLi[i].style.width = screen.width + "px";
-      imgLi[i].src = imgs[i];
+      // banner controller
+      var imgs = [
+        "image/pic1.jpg",
+        "image/pic2.jpg",
+        "image/pic3.jpg",
+        "image/pic4.jpg",
+      ];
+      var nowIndex = 0;
+      var imgUL = document.getElementById("imageUL");
+      var imgLi = imgUL.getElementsByTagName("img");
+      var circleUL = document.getElementById("circleUL");
+      var circleLi = circleUL.getElementsByTagName("li");
 
-      circleLi[i].addEventListener("click", (e) => {
-        select(i);
-        clearInterval(Timer);
-        setTimeout(() => {
-          Timer = setInterval(update, 1000);
-        }, 1000);
-      });
-    }
-    imgUL.style.width = imgLi[0].offsetWidth * imgLi.length + "px";
-
-    function select(index) {
-      nowIndex = index;
       for (let i = 0; i < 4; i++) {
-        // clear css
-        circleLi[i].style.border = "";
-        circleLi[i].style.backgroundColor = "";
-      }
+        imgLi[i].style.width = screen.width + "px";
+        imgLi[i].src = imgs[i];
 
-      imgUL.style.left = -screen.width * index + "px";
-      circleLi[index].style.border = "2px solid #006F22";
-      circleLi[index].style.backgroundColor = "#FFF";
-    }
-    function update() {
-      nowIndex++;
-      if (nowIndex === 4) {
-        nowIndex = 0;
+        circleLi[i].addEventListener("click", (e) => {
+          select(i);
+          clearInterval(Timer);
+          setTimeout(() => {
+            Timer = setInterval(update, 1000);
+          }, 1000);
+        });
       }
-      select(nowIndex);
-    }
+      imgUL.style.width = imgLi[0].offsetWidth * imgLi.length + "px";
 
-    var Timer = setInterval(update, 1000);
-  </script>
+      function select(index) {
+        nowIndex = index;
+        for (let i = 0; i < 4; i++) {
+          // clear css
+          circleLi[i].style.border = "";
+          circleLi[i].style.backgroundColor = "";
+        }
+
+        imgUL.style.left = -screen.width * index + "px";
+        circleLi[index].style.border = "2px solid #006F22";
+        circleLi[index].style.backgroundColor = "#FFF";
+      }
+      function update() {
+        nowIndex++;
+        if (nowIndex === 4) {
+          nowIndex = 0;
+        }
+        select(nowIndex);
+      }
+      var Timer = setInterval(update, 1000);
+    </script>
+  </body>
 </html>
