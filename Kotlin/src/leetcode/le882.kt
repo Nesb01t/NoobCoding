@@ -2,9 +2,10 @@ package leetcode
 
 // 最短路模型, 看不明白dijkstra算法, cv模仿了一个
 class le882 {
-    private var g: Array<IntArray>
-    private var distance: IntArray
-    private var used: BooleanArray
+    var g: Array<IntArray>? = null
+    var distance = IntArray(0)
+    var used = BooleanArray(0)
+
     fun reachableNodes(edges: Array<IntArray>, maxMoves: Int, n: Int): Int {
         g = Array(n) { IntArray(n) }
         distance = IntArray(n)
@@ -43,7 +44,7 @@ class le882 {
     }
 
     fun dijkstra(start: Int) {
-        val n = g.size
+        val n : Int? = g?.size
         // 初始化距离
         for (i in 0 until n) distance[i] = Int.MAX_VALUE
         distance[start] = 0
@@ -65,10 +66,10 @@ class le882 {
 
             // 更新距离
             for (k in 0 until n) {
-                if (used[k] || g[t][k] == Int.MAX_VALUE) {
+                if (used[k] || g?.get(t)?.get(k) == Int.MAX_VALUE) {
                     continue
                 }
-                distance[k] = Math.min(distance[k], distance[t] + g[t][k])
+                distance[k] = Math.min(distance[k], distance[t] + (g?.get(t)?.get(k)!!))
             }
         }
     }
