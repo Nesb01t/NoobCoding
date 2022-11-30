@@ -5,7 +5,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { usePriceStore } from "@/stores/price.js";
 
-const hello = ref("hello world!")
+const hello = ref("hello world!");
 </script>
