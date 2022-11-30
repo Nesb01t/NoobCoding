@@ -8,6 +8,9 @@ export const usePriceStore = defineStore("userPrice", () => {
   function setPrice(type = "GitHub", newPrice) {
     type == "GitHub" ? (githubPrice = newPrice) : (giteePrice = newPrice);
   }
+  function addPrice(type = "GitHub") {
+    type == "GitHub" ? githubPrice++ : giteePrice++;
+  }
 
-  return { githubPrice, giteePrice, setPrice };
+  return { githubPrice, giteePrice, setPrice, addPrice };
 });
