@@ -8,14 +8,13 @@
   </head>
   <body>
     <script>
-      function createPlayer(obj) {
-        var obj = new Object();
-        obj.name = "hello";
-        return obj;
+      function createPlayer(x) {
+        var name = 10;
+        return arguments;
       }
 
-      var player = createPlayer(player);
-      document.getElementsByTagName("body")[0].innerHTML = player.name;
+      createPlayer(10);
+      document.getElementsByTagName("body")[0].innerHTML = "debugger" + name;
     </script>
   </body>
 </html>
