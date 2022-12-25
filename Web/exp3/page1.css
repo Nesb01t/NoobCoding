@@ -1,0 +1,158 @@
+.item1 {
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: white;
+  background-color: green;
+}
+.nav,
+.nav1,
+.sousuo {
+  height: 100px;
+  width: 100%;
+}
+.logo {
+  font-size: 55px;
+  color: green;
+  width: 300px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.denglu {
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top: 60px;
+  left: 1000px;
+  z-index: 1000;
+  border: solid 1px;
+}
+input,
+button {
+  border: solid 1px;
+  margin: 5px 0;
+  height: 30px;
+  width: 200px;
+  font-size: 16px;
+}
+.item4 {
+  width: 5%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.content {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  top: 150px;
+  left: 0;
+}
+p {
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 70px;
+}
+.item5 {
+  width: 300px;
+  height: 100px;
+  margin: 15px 5px;
+}
+.img1 {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.font {
+  position: relative;
+  left: 200px;
+  top: 15px;
+  width: 100px;
+}
+#mainImage {
+  width: 100%;
+  height: 500px;
+  background-size: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+#mainImage #imageUL {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 500px;
+  width: 1px;
+  /* width: 12930px; */
+  transition: left 1s;
+  padding: 0;
+}
+
+#mainImage #imageUL li {
+  /*width: 800px;*/
+  height: 500px;
+  overflow: hidden;
+  float: left;
+}
+
+#mainImage div:nth-child(2) {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 30px;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  padding-top: 80px;
+}
+
+#mainImage div:nth-child(3) {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  padding-top: 150px;
+}
+
+#mainImage #circleUL {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  list-style: none;
+  /*设置居中显示*/
+  width: 160px;
+  margin-left: -80px;
+  height: 30px;
+  text-align: center;
+}
+
+#mainImage #circleUL li {
+  float: left;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background-color: #acacac;
+  margin: 0px 10px;
+  border: 2px solid #acacac;
+}
+
+#mainImage #circleUL li:hover {
+  border: 2px solid #006f22;
+  background-color: #fff;
+}

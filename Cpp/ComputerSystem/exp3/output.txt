@@ -1,0 +1,10 @@
+SIGN	⑧	1
+SIGN	＋	1
+CHAR	共	3
+CHAR	国	3
+CHAR	和	3
+CHAR	华	3
+CHAR	金	1
+CHAR	民	3
+CHAR	人	3
+CHAR	中	3
